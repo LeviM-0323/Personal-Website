@@ -12,8 +12,8 @@
   
   /* Style the top navigation bar */
   .topnav {
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 5%;
+	margin-right: 5%;
 	overflow: hidden;
 	background-color: #333;
   }
@@ -36,16 +36,16 @@
   
   /* Style the content */
   .content {
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 5%;
+	margin-right: 5%;
 	background-color: #ddd;
 	padding: 10px;
   }
   
   /* Style the footer */
   .footer {
-	margin-left: 10%;
-	margin-right: 10%;
+	margin-left: 5%;
+	margin-right: 5%;
 	background-color: #f1f1f1;
 	padding: 10px;
   }
