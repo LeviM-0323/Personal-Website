@@ -6,7 +6,7 @@
   body {
 	margin: 0;
 	font-family: Arial, Helvetica, sans-serif;
-	background: url("overlay.png"), url("bg.jpg");
+	background: url("bg.png");
   }
   
   /* Style the top navigation bar */
