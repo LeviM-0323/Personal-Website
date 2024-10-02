@@ -12,8 +12,8 @@
   
   /* Style the top navigation bar */
   .topnav {
-	padding-left: 10%;
-	padding-right: 10%;
+	margin-left: 10%;
+	margin-right: 10%;
 	overflow: hidden;
 	background-color: #333;
   }
