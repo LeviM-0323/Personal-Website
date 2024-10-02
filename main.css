@@ -12,9 +12,10 @@
   
   /* Style the top navigation bar */
   .topnav {
+	padding-left: 10%;
+	padding-right: 10%;
 	overflow: hidden;
 	background-color: #333;
-	opacity: 0.85;
   }
   
   /* Style the topnav links */
