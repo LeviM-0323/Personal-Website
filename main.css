@@ -34,6 +34,7 @@
   .row {
 	display: -webkit-flex;
 	display: flex;
+	background-color: #707070;
   }
   
   /* style the side sections */
