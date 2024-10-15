@@ -54,6 +54,7 @@
 
   /* Left and Right columns (pictures)*/
   .column.side {
+	padding: 10px;
 	background-color: #707070;
 	-webkit-flex: 1;
 	-ms-flex: 1;
