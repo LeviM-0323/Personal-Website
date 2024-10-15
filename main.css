@@ -37,22 +37,16 @@
 	padding: 10px;
   }
 
-  /* Style the content */
+  /* Style the content (middle column)*/
   .content {
 	width: 50%;
 	background-color: #ddd;
 	text-align: center;
   }
 
+  /* Left and Right columns (pictures)*/
   .column.side {
 	width: 25%;
-  }
-
-
-  .row:after {
-	content: "";
-	display: table;
-	clear: both;
   }
   
   /* Style the footer */
