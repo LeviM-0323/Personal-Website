@@ -11,7 +11,6 @@
   
   /* Style the top navigation bar */
   .topnav {
-	padding: 30px;
 	overflow: hidden;
 	background-color: #333;
   }
@@ -60,4 +59,10 @@
   .footer {
 	background-color: #f1f1f1;
 	padding: 10px;
+  }
+
+  @media (max-width: 600px) {
+	.column.side, .column.middle {
+	  width: 100%;
+	}
   }
