@@ -36,16 +36,14 @@
   .column {
 	float: left;
 	padding: 10px;
-	height: 300px;
   }
 
   /* Style the content */
-	.content {
-		width: 50%;
-		background-color: #ddd;
-		padding: 10px;
-		text-align: center;
-	}
+  .content {
+	width: 50%;
+	background-color: #ddd;
+	text-align: center;
+  }
 
   .column.side {
 	width: 25%;
