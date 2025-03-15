@@ -1,0 +1,15 @@
+@use "colors" as *;
+
+@use "colors/utilities" with (
+  $palette: (
+    "color-families": (
+      red,
+      grey,
+      slate,
+      purple,
+    ),
+  ),
+  $utilities: (
+    "background-colors": "background",
+  )
+);
