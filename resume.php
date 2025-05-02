@@ -1,3 +1,17 @@
+<?php
+session_start();
+
+//Check if user is logged in
+if (!isset($_SESSION['username'])) {
+    header("Location: index.php");
+    exit();
+}
+
+$email = $_SESSION['email'] ?? '';
+$username = $_SESSION['username'] ?? '';
+$isAdmin = strcasecmp($username, 'admin') === 0;
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -22,8 +36,9 @@
       </nav>
       <nav>
         <ul>
-          <li><a href="contact.php">Contact</a></li>
           <li><a href="home.php">Home</a></li>
+          <li><a href="contact.php">Contact</a></li>
+          <li><a href="resume.php">Resume</a></li>
           <li><a href="delete_account.php">Delete Account</a></li>
         </ul>
         <ul>
@@ -48,7 +63,12 @@
       <small>&copy; 2025 Levi McLean</small>
       <br>
       <small>Built with 
-        <a href="https://picocss.com">Pico</a> | <a href="https://github.com/LeviM-0323/Personal-Website" target="_blank">Source</a>
+        <a href="https://picocss.com">Pico</a> | <a href="https://github.com/LeviM-0323/Personal-Website" target="_blank">Source</a> |
+        <?php if ($isAdmin): ?>
+          <a href="admin.php">Admin</a>
+        <?php else: ?>
+          <span style="color: grey; cursor: not-allowed;">Admin</span>
+        <?php endif; ?>
       </small>
     </footer>
     <script src="/js/minimal-theme-switcher.js"></script>

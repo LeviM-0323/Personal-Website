@@ -46,7 +46,7 @@ $email = $_SESSION['email'] ?? '';
     <!-- Body -->
     <main>
         <h2>Docker Server Addresses</h2>
-        <strong>Local Ip (192.168.2.21)</strong>
+        <strong>Tunnel Addresses</strong>
         <ul>
             <article>
                 <article>
@@ -64,7 +64,7 @@ $email = $_SESSION['email'] ?? '';
                         <strong style="margin-left: 10px;">Prowlarr</strong>
                     </header>
                     <p>
-                        <a href="http://192.168.2.21:9696" target="_blank">http://192.168.2.21:9696</a>
+                        <a href="http://prowlarr.levimclean.tech" target="_blank">http://prowlarr.levimclean.tech</a>
                     </p>
                 </article>
                 <article>
@@ -73,7 +73,7 @@ $email = $_SESSION['email'] ?? '';
                         <strong style="margin-left: 10px;">Radarr</strong>
                     </header>
                     <p>
-                        <a href="http://192.168.2.21:7878" target="_blank">http://192.168.2.21:7878</a>
+                        <a href="http://radarr.levimclean.tech" target="_blank">http://radarr.levimclean.tech</a>
                     </p>
                 </article>
                 <article>
@@ -82,7 +82,7 @@ $email = $_SESSION['email'] ?? '';
                         <strong style="margin-left: 10px;">SabNZBd</strong>
                     </header>
                     <p>
-                        <a href="http://192.168.2.21:8081" target="_blank">http://192.168.2.21:8081</a>
+                        <a href="http://sabnzbd.levimclean.tech" target="_blank">http://sabnzbd.levimclean.tech</a>
                     </p>
                 </article>
                 <article>
@@ -91,7 +91,7 @@ $email = $_SESSION['email'] ?? '';
                         <strong style="margin-left: 10px;">Sonarr</strong>
                     </header>
                     <p>
-                        <a href="http://192.168.2.21:8989" target="_blank">http://192.168.2.21:8989</a>
+                        <a href="http://sonarr.levimclean.tech" target="_blank">http://sonarr.levimclean.tech</a>
                     </p>
                 </article>
                 <article>
@@ -100,83 +100,16 @@ $email = $_SESSION['email'] ?? '';
                         <strong style="margin-left: 10px;">Tautulli</strong>
                     </header>
                     <p>
-                        <a href="http://192.168.2.21:8181" target="_blank">http://192.168.2.21:8181</a>
+                        <a href="http://tautulli.levimclean.tech" target="_blank">http://tautulli.levimclean.tech</a>
                     </p>
                 </article>
                 <article>
                     <header>
-                        <img src="img/qbittorrent.png" style="vertical-align: middle; width: 30px; height: 30px;">
-                        <strong style="margin-left: 10px;">Qbittorrent (Not in use)</strong>
+                        <img src="img/pihole.png" style="vertical-align: middle; width: 30px; height: 30px;">
+                        <strong style="margin-left: 10px;">Pi-Hole</strong>
                     </header>
                     <p>
-                        <a href="http://192.168.2.21:8081" target="_blank">http://192.168.2.21:8081</a>
-                    </p>
-                </article>
-        </ul>
-        <strong>Public Ip (142.189.68.126)</strong>
-        <ul>
-            <article>
-                <article>
-                    <header>
-                        <img src="img/plex.jpg" style="vertical-align: middle; width: 30px; height: 30px;">
-                        <strong style="margin-left: 10px;">Plex</strong>
-                    </header>
-                    <p>
-                        <a href="http://142.189.68.126:32400" target="_blank">http://142.189.68.126:32400</a>
-                    </p>
-                </article>
-                <article>
-                    <header>
-                        <img src="img/prowlarr.png" style="vertical-align: middle; width: 30px; height: 30px;">
-                        <strong style="margin-left: 10px;">Prowlarr</strong>
-                    </header>
-                    <p>
-                        <a href="http://142.189.68.126:9696" target="_blank">http://142.189.68.126:9696</a>
-                    </p>
-                </article>
-                <article>
-                    <header>
-                        <img src="img/radarr.png" style="vertical-align: middle; width: 30px; height: 30px;">
-                        <strong style="margin-left: 10px;">Radarr</strong>
-                    </header>
-                    <p>
-                        <a href="http://142.189.68.126:7878" target="_blank">http://142.189.68.126:7878</a>
-                    </p>
-                </article>
-                <article>
-                    <header>
-                        <img src="img/sabnzbd.png" style="vertical-align: middle; width: 30px; height: 30px;">
-                        <strong style="margin-left: 10px;">SabNZBd</strong>
-                    </header>
-                    <p>
-                        <a href="http://142.189.68.126:8081" target="_blank">http://142.189.68.126:8081</a>
-                    </p>
-                </article>
-                <article>
-                    <header>
-                        <img src="img/sonarr.png" style="vertical-align: middle; width: 30px; height: 30px;">
-                        <strong style="margin-left: 10px;">Sonarr</strong>
-                    </header>
-                    <p>
-                        <a href="http://142.189.68.126:8989" target="_blank">http://142.189.68.126:8989</a>
-                    </p>
-                </article>
-                <article>
-                    <header>
-                        <img src="img/tautulli.png" style="vertical-align: middle; width: 30px; height: 30px;">
-                        <strong style="margin-left: 10px;">Tautulli</strong>
-                    </header>
-                    <p>
-                        <a href="http://142.189.68.126:8181" target="_blank">http://142.189.68.126:8181</a>
-                    </p>
-                </article>
-                <article>
-                    <header>
-                        <img src="img/qbittorrent.png" style="vertical-align: middle; width: 30px; height: 30px;">
-                        <strong style="margin-left: 10px;">Qbittorrent (Not in use)</strong>
-                    </header>
-                    <p>
-                        <a href="http://142.189.68.126:8081" target="_blank">http://142.189.68.126:8081</a>
+                        <a href="http://pihole.levimclean.tech/admin" target="_blank">http://pihole.levimclean.tech/admin</a>
                     </p>
                 </article>
         </ul>

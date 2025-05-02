@@ -36,6 +36,7 @@ $isAdmin = strcasecmp($username, 'admin') === 0;
       </nav>
       <nav>
         <ul>
+          <li><a href="home.php">Home</a></li>
           <li><a href="contact.php">Contact</a></li>
           <li><a href="resume.php">Resume</a></li>
           <li><a href="delete_account.php">Delete Account</a></li>
