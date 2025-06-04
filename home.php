@@ -1,7 +1,12 @@
 <?php
+require_once __DIR__ . '/mailer/PHPMailer.php';
+require_once __DIR__ . '/mailer/SMTP.php';
+require_once __DIR__ . '/mailer/Exception.php';
+use PHPMailer\PHPMailer\PHPMailer;
+use PHPMailer\PHPMailer\Exception;
+
 session_start();
 
-//Check if user is logged in
 if (!isset($_SESSION['username'])) {
     header("Location: index.php");
     exit();
@@ -10,6 +15,66 @@ if (!isset($_SESSION['username'])) {
 $email = $_SESSION['email'] ?? '';
 $username = $_SESSION['username'] ?? '';
 $isAdmin = strcasecmp($username, 'admin') === 0;
+$subscribe_success = null;
+$subscribe_error = null;
+if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['subscribe_email'])) {
+  $subscriber_email = filter_var($_POST['subscribe_email'], FILTER_VALIDATE_EMAIL) ? $_POST['subscribe_email'] : '';
+  if ($subscriber_email) {
+    $mail = new PHPMailer(true);
+    try {
+      // --- Send notification to admin ---
+      $mail->isSMTP();
+      $mail->Host = 'smtp.gmail.com';
+      $mail->SMTPAuth = true;
+      $mail->Username = 'aidanmclean111@gmail.com';
+      $mail->Password = 'zvmx gdye qpji grkq'; 
+      $mail->SMTPSecure = 'tls';
+      $mail->Port = 587;
+      $mail->setFrom('your@gmail.com', 'Levi McLeans Website');
+      $mail->addAddress('aidanmclean111@gmail.com');
+      $mail->Subject = "New Subscription Notification";
+      $mail->Body = "A new user has subscribed to your website!\n\n"
+        . "Subscriber Email: $subscriber_email\n"
+        . "Date: " . date('Y-m-d H:i:s') . "\n"
+        . "IP Address: " . $_SERVER['REMOTE_ADDR'] . "\n\n"
+        . "Keep up the great work!\n\n"
+        . "This is an automated message from your website.";
+      $mail->send();
+
+      // --- Send confirmation to subscriber ---
+      $mail->clearAddresses();
+      $mail->addAddress($subscriber_email);
+      $mail->Subject = "Welcome to Levi McLean's Website!";
+      $mail->isHTML(true);
+      $mail->Body = "
+        <h2>Thank you for subscribing!</h2>
+        <p>Hi there,</p>
+        <p>We're excited to have you join our community at <strong>Levi McLean's Website</strong>!</p>
+        <ul>
+          <li>You'll be the first to know about new projects, blog posts, and updates.</li>
+          <li>Get exclusive insights into programming tips, tutorials, and behind-the-scenes content.</li>
+          <li>Stay tuned for upcoming features and interactive content.</li>
+        </ul>
+        <p>If you have any questions or suggestions, feel free to reply to this email or visit our <a href='https://yourwebsite.com/contact.php'>Contact Page</a>.</p>
+        <hr>
+        <p>Happy coding!<br>
+        <strong>Levi McLean</strong></p>
+        <small>This is an automated message. If you did not subscribe, please ignore this email.</small>
+      ";
+      $mail->AltBody = "Thank you for subscribing to Levi McLean's Website!\n\n"
+        . "You'll be the first to know about new projects, blog posts, and updates.\n"
+        . "If you have any questions, visit our website.\n\n"
+        . "Happy coding!\nLevi McLean";
+      $mail->send();
+
+      $subscribe_success = "Thank you for subscribing! A confirmation email has been sent to your address.";
+    } catch (Exception $e) {
+      $subscribe_error = "Mailer Error: " . $mail->ErrorInfo;
+    }
+  } else {
+    $subscribe_error = "Please enter a valid email address.";
+  }
+}
 ?>
 
 <!doctype html>
@@ -83,11 +148,21 @@ $isAdmin = strcasecmp($username, 'admin') === 0;
       <section id="preview">
         <h2>Subscribe (WIP)</h2>
         <p>I will not send you anything containing personal information or sensitive data. This is purely an experimental feature implemented to test the PHP Mail() function. Sign up with your email if you wish to participate.</p>
-        <fieldset role="group">
-            <input type="email" id="email" name="email" placeholder="Enter your email" required>
-            <button type="button">Subscribe</button>
-        </fieldset>
-        <p id="message" style="display: none;"></p>
+        <?php if (isset($subscribe_success)): ?>
+            <article style="background: #e6ffe6; color: #225522; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem;">
+                <?= $subscribe_success ?>
+            </article>
+        <?php elseif (isset($subscribe_error)): ?>
+            <article style="background: #ffe6e6; color: #992222; border-radius: 0.5rem; padding: 1rem; margin-bottom: 1rem;">
+                <?= $subscribe_error ?>
+            </article>
+        <?php endif; ?>
+        <form method="post" autocomplete="off">
+            <fieldset role="group">
+                <input type="email" id="subscribe_email" name="subscribe_email" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </fieldset>
+        </form>
       </section>
       <hr>
       <small>&copy; 2025 Levi McLean</small>
@@ -102,6 +177,5 @@ $isAdmin = strcasecmp($username, 'admin') === 0;
       </small>
     </footer>
     <script src="/js/minimal-theme-switcher.js"></script>
-    <script src="/js/subscribe.js"></script>
   </body>
 </html>

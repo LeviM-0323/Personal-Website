@@ -14,7 +14,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
             $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
 
             $stmt = $conn->prepare("UPDATE users SET password = ? WHERE email = ?");
-            $stmt->bind_param("ss", $hashed_password, $username);
+            $stmt->bind_param("ss", $hashed_password, $email);
 
             if ($stmt->execute()) {
                 $success_message = "Password updated successfully.";

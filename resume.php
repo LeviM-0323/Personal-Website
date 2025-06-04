@@ -52,10 +52,38 @@ $isAdmin = strcasecmp($username, 'admin') === 0;
 
     <main>
         <hgroup>
-            <h2>Resume And Cover Letter</h2>
-            <cite>Page Under Maintenance</cite>
+            <h2>Resume &amp; Cover Letter</h2>
+            <cite>Download my latest resume below</cite>
         </hgroup>
-        <h3>Coming Soon...</h3>
+        <section style="max-width: 600px; margin: 2rem auto;">
+            <p>
+                Thank you for your interest in my professional background! Below you can download my most recent resume as a DOCX. 
+                If you have any questions or would like to discuss opportunities, please feel free to <a href="contact.php">contact me</a>.
+            </p>
+            <ul>
+                <li><strong>Name:</strong> Levi McLean</li>
+                <li><strong>Email:</strong> AidanMclean111@gmail.com</li>
+                <li><strong>Position Sought:</strong> Software Developer / Internet Applications Developer</li>
+                <li><strong>Location:</strong> Woodstock, Ontario</li>
+            </ul>
+            <a href="/resume/Levi_McLean_Resume.docx" download class="contrast" style="display:inline-block; margin:1.5rem 0; padding:1rem 2rem; font-size:1.2rem;">
+                📄 Download Resume (DOCX)
+            </a>
+            <p>
+                <em>Last updated: <?= date("F Y", filemtime(__DIR__ . '/resume/Levi_McLean_Resume.docx')) ?></em>
+            </p>
+            <hr>
+            <h3>Why Hire Me?</h3>
+            <ul>
+                <li>Proven experience in web and software development</li>
+                <li>Strong problem-solving and analytical skills</li>
+                <li>Excellent communication and teamwork abilities</li>
+                <li>Passionate about learning and growth</li>
+            </ul>
+            <p>
+                <strong>References available upon request.</strong>
+            </p>
+        </section>
     </main>
 
     <footer>

@@ -1,18 +1,10 @@
 <?php
 
-// Enable error reporting
-ini_set('display_errors', 1);
-ini_set('display_startup_errors', 1);
-error_reporting(E_ALL);
-
-//Start session caching
 session_start();
 
-//require database script
 require 'db.php';
 
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
-    // Get POST data
     $identifier = $_POST['identifier'];
     $password = $_POST['password'];
 
@@ -95,6 +87,49 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         </style>
     </head>
     <body>
+        <div id="guest-message" style="
+            background: #d93526;
+            color: #333;
+            padding: 1rem 2.5rem 1rem 1rem;
+            text-align: center;
+            font-weight: 500;
+            border-radius: 0.5rem;
+            margin-bottom: 1.5rem;
+            box-shadow: 0 2px 8px #0001;
+            position: fixed;
+            top: 0;
+            left: 50%;
+            transform: translate(-50%, -120%);
+            max-width: 500px;
+            z-index: 1000;
+            transition: transform 0.7s cubic-bezier(.68,-0.55,.27,1.55);
+            border: 1px #000000;">
+            <span style="display:inline-block;vertical-align:middle;">
+                👋 New here? You can log in with <b>Username: Guest</b> and <b>Password: guest</b> if you do not wish to register.
+            </span>
+            <div id="guest-progress" style="height: 4px; background: #000000; position: absolute; left: 0; bottom: 0; width: 100%; border-radius: 0 0 0.5rem 0.5rem; transition: width 0.2s;"></div>
+        </div>
+        <script>
+            let guestMsg = document.getElementById('guest-message');
+            let guestBar = document.getElementById('guest-progress');
+            setTimeout(() => {
+                guestMsg.style.transform = "translate(-50%, 30px)";
+            }, 100);
+            let duration = 7000, interval = 20, elapsed = 0;
+            let timer = setInterval(() => {
+                elapsed += interval;
+                let percent = Math.max(0, 100 - (elapsed / duration) * 100);
+                guestBar.style.width = percent + "%";
+                if (elapsed >= duration) {
+                    dismissGuestMsg();
+                }
+            }, interval);
+            function dismissGuestMsg() {
+                guestMsg.style.transform = "translate(-50%, -120%)";
+                clearInterval(timer);
+                setTimeout(() => { guestMsg.style.display = 'none'; }, 700);
+            }
+        </script>
         <div class="login-container">
             <h2>Login</h2>
             <?php if (isset($error_message)): ?>

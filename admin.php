@@ -34,7 +34,9 @@ $email = $_SESSION['email'] ?? '';
       </nav>
       <nav>
         <ul>
-            <li><a href="home.php">Home</a></li>
+            <li><a href="home.php">User Home</a></li>
+            <li><a href="admin.php">Admin Home</a></li>
+            <li><a href="all_users.php">All Users</a></li>
         </ul>
         <ul>
           <li><a href="logout.php">Logout</a></li>
@@ -195,6 +197,9 @@ $email = $_SESSION['email'] ?? '';
                 </article>
         </ul>
     </main>
+    <!-- ./ Body -->
+
+    <!-- Footer -->
     <footer>
       <hr>
       <small>&copy; 2025 Levi McLean</small>
@@ -203,6 +208,8 @@ $email = $_SESSION['email'] ?? '';
         <a href="https://picocss.com">Pico</a> | <a href="https://github.com/LeviM-0323/Personal-Website" target="_blank">Source</a>
       </small>
     </footer>
+    <!-- ./ Footer -->
+
     <script src="/js/minimal-theme-switcher.js"></script>
   </body>
 </html>
